@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SideQuestAI</title>
+    <script>
+      // GitHub Pages sometimes loads root path without #
+      if (!location.hash) {
+        location.replace(location.pathname + '#/');
+      }
+    </script>
   </head>
 
   <body>
