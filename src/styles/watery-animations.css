@@ -1,0 +1,381 @@
+/* Ultra-smooth watery animations */
+
+@keyframes liquid-flow {
+  0%,
+  100% {
+    border-radius: 50% 30% 70% 40%;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    border-radius: 30% 60% 40% 70%;
+    transform: scale(1.05) rotate(90deg);
+  }
+  50% {
+    border-radius: 60% 40% 30% 60%;
+    transform: scale(0.95) rotate(180deg);
+  }
+  75% {
+    border-radius: 40% 70% 60% 30%;
+    transform: scale(1.02) rotate(270deg);
+  }
+}
+
+@keyframes liquid-blob {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70%;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  33% {
+    border-radius: 30% 60% 70% 40%;
+    transform: translateX(30px) translateY(-15px) scale(1.1);
+  }
+  66% {
+    border-radius: 70% 30% 40% 60%;
+    transform: translateX(-20px) translateY(10px) scale(0.9);
+  }
+}
+
+@keyframes ripple-wave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes liquid-glow {
+  0%,
+  100% {
+    filter: blur(5px) brightness(1);
+    opacity: 0.6;
+  }
+  50% {
+    filter: blur(10px) brightness(1.5);
+    opacity: 0.8;
+  }
+}
+
+@keyframes smooth-float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(10px) translateX(-15px) rotate(240deg);
+  }
+}
+
+@keyframes elastic-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes liquid-morph {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 30% 70% 60% 40%;
+    transform: rotate(90deg);
+  }
+  50% {
+    border-radius: 70% 30% 40% 60%;
+    transform: rotate(180deg);
+  }
+  75% {
+    border-radius: 40% 60% 30% 70%;
+    transform: rotate(270deg);
+  }
+  100% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes watery-text {
+  0%,
+  100% {
+    text-shadow:
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(0px);
+  }
+  50% {
+    text-shadow:
+      0 0 10px currentColor,
+      0 0 20px currentColor,
+      0 0 30px currentColor,
+      0 0 40px rgba(168, 85, 247, 0.7);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes liquid-gradient {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+}
+
+@keyframes smooth-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes buttery-hover {
+  0% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.2);
+  }
+}
+
+/* Utility classes for watery effects */
+.liquid-morph {
+  animation: liquid-morph 8s ease-in-out infinite;
+}
+
+.liquid-blob {
+  animation: liquid-blob 6s ease-in-out infinite;
+}
+
+.smooth-float {
+  animation: smooth-float 8s ease-in-out infinite;
+}
+
+.watery-text {
+  animation: watery-text 3s ease-in-out infinite;
+}
+
+.liquid-gradient {
+  background-size: 300% 300%;
+  animation: liquid-gradient 4s ease-in-out infinite;
+}
+
+.buttery-smooth {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.elastic-hover {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.elastic-hover:hover {
+  animation: elastic-bounce 0.6s ease-out;
+}
+
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.6s,
+    height 0.6s;
+}
+
+.ripple-effect:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.liquid-border {
+  position: relative;
+  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+  background-size: 400% 400%;
+  animation: liquid-gradient 4s ease infinite;
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.liquid-border-inner {
+  background: inherit;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.watery-card {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.watery-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.watery-card:hover::before {
+  animation: liquid-flow 2s ease-in-out;
+  opacity: 1;
+}
+
+.watery-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.liquid-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 300% 300%;
+  animation: liquid-gradient 6s ease infinite;
+}
+
+.liquid-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.liquid-button:hover::before {
+  left: 100%;
+}
+
+.liquid-button:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+.smooth-entrance {
+  animation: smooth-slide-in 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.liquid-logo {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+}
+
+.liquid-logo::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.2) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  animation: liquid-glow 3s ease-in-out infinite;
+}
+
+.liquid-logo:hover::after {
+  opacity: 1;
+}
+
+.liquid-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.watery-nav {
+  backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.watery-nav:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-bottom-color: rgba(59, 130, 246, 0.2);
+}
+
+.smooth-text {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.smooth-text:hover {
+  transform: translateY(-2px);
+  text-shadow:
+    0 0 10px currentColor,
+    0 5px 15px rgba(0, 0, 0, 0.2);
+}
